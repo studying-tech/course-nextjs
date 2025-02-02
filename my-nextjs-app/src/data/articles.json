@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Next.js をはじめよう",
+      "author": "齋藤 智樹",
+      "publishedAt": "2025-02-01"
+    },
+    {
+      "id": 2,
+      "title": "React の基礎を学ぶ",
+      "author": "齋藤 智樹",
+      "publishedAt": "2025-02-02"
+    }
+  ]
+}
