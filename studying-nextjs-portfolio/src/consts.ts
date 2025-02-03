@@ -1,4 +1,4 @@
-import { type SkillProps } from '@/types'
+import { type SkillProps } from '@/types/skills'
 
 export const SITE_TITLE = "Tomoki Saito's Portfolio"
 export const SITE_DESCRIPTION = '齋藤 智樹のポートフォリオサイトです。'
