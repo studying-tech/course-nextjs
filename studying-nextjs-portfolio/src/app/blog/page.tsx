@@ -7,7 +7,7 @@ import { getAllPosts } from '@/lib/mdx'
 import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts'
 
 export const metadata = {
-  title: `Blog - ${SITE_TITLE}`,
+  title: `Blog | ${SITE_TITLE}`,
   description: SITE_DESCRIPTION,
 }
 
@@ -21,20 +21,18 @@ export default async function Blog() {
         {posts.map((post, index) => (
           <li
             key={post.meta.slug}
-            className={`mb-4 text-center md:w-full ${index === 0 ? 'md:w-full' : 'md:w-[calc(50%-1rem)]'}`}
+            className={`mb-4 text-center w-full ${index === 0 ? 'md:w-full' : 'md:w-[calc(50%-1rem)]'}`}
           >
             <Link href={`/blog/${post.meta.slug}`} className='block transition-all duration-200 hover:text-accent'>
-              {post.meta.heroImage && (
-                <div className='relative mb-2'>
-                  <Image
-                    src={post.meta.heroImage}
-                    alt={post.meta.title}
-                    width={index === 0 ? 1020 : 720}
-                    height={index === 0 ? 510 : 360}
-                    className='rounded-xl transition-shadow duration-200 hover:shadow-lg'
-                  />
-                </div>
-              )}
+              <div className='relative mb-2'>
+                <Image
+                  src={post.meta.heroImage}
+                  alt={post.meta.title}
+                  width={index === 0 ? 1020 : 720}
+                  height={index === 0 ? 510 : 360}
+                  className='rounded-xl transition-shadow duration-200 hover:shadow-lg'
+                />
+              </div>
 
               <h4 className={`text-white ${index === 0 && 'md:text-3xl'} text-xl`}>{post.meta.title}</h4>
 

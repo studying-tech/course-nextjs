@@ -10,18 +10,15 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
     const post = await getPostBySlug(resolvedParams.slug.join('/'))
 
     return {
-      title: { default: `${post.meta.title} | ${SITE_TITLE}`, template: `%s | ${SITE_TITLE}` },
+      title: { default: `${post.meta.title} | ${SITE_TITLE}` },
       description: post.meta.description,
       openGraph: {
-        type: 'website',
-        locale: 'ja_JP',
         url: `${BASE_URL}/blog/${post.meta.slug}`,
         title: `${post.meta.title} | ${SITE_TITLE}`,
         description: post.meta.description,
         images: [{ url: `${BASE_URL}/${post.meta.heroImage}`, width: 1200, height: 630, alt: 'OG Image' }],
       },
       twitter: {
-        card: 'summary_large_image',
         title: `${post.meta.title} | ${SITE_TITLE}`,
         description: post.meta.description,
         images: [`${BASE_URL}/${post.meta.heroImage}`],
@@ -45,9 +42,7 @@ export default async function BlogPost({ params }: { params: { slug: string[] } 
     return (
       <>
         <div className='mb-8'>
-          {heroImage && (
-            <Image src={heroImage} alt='' width={1020} height={510} className='mx-auto rounded-xl shadow-lg' />
-          )}
+          <Image src={heroImage} alt='' width={1020} height={510} className='mx-auto rounded-xl shadow-lg' />
         </div>
 
         <div className='text-center mb-8'>

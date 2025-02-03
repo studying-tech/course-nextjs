@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import HeaderLink from './HeaderLink'
-import { SITE_TITLE, NAV_ITEMS } from '@/consts'
+import { SITE_TITLE, NAV_ITEMS, GITHUB_URL } from '@/consts'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -10,6 +10,7 @@ export default function Header() {
   const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
+    // モーダルの外側をクリックした際、メニューを閉じる
     const handleClickOutside = (event: MouseEvent) => {
       if (
         menuContentRef.current &&
@@ -21,6 +22,7 @@ export default function Header() {
     }
 
     document.addEventListener('click', handleClickOutside)
+    // クリーンアップ関数
     return () => document.removeEventListener('click', handleClickOutside)
   }, [])
 
@@ -71,7 +73,7 @@ export default function Header() {
           </ul>
 
           <div className='h-8 flex items-center justify-center mt-8 md:mt-0'>
-            <a href='https://github.com/Tomoki-Saito' target='_blank' rel='noopener noreferrer' className='h-8'>
+            <a href={GITHUB_URL} target='_blank' rel='noopener noreferrer' className='h-8'>
               <svg viewBox='0 0 16 16' aria-hidden='true' width='32' height='32'>
                 <path
                   fill='currentColor'

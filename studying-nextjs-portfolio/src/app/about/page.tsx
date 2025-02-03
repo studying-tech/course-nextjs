@@ -3,11 +3,12 @@ import Image from 'next/image'
 import MainContainer from '@/components/MainContainer'
 import PageTitle from '@/components/PageTitle'
 import Timeline from '@/components/about/Timeline'
-import { JOB_TITLE } from '@/consts'
+import { SITE_TITLE, JOB_TITLE } from '@/consts'
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'About page',
+  title: `About | ${SITE_TITLE}`,
+  description:
+    'ゼノクリース合同会社の代表として、Web エンジニア・UX デザイナー・IT コンサルタントなど、多岐に渡って活動中。教育系の事業の経験もあり、現在はスタディングテックの講師も務めている。',
 }
 
 export default function About() {

@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
     const data = await req.json()
     // サーバサイドでのバリデーション
     if (!data.name || !data.email || !data.subject || !data.message) {
-      return NextResponse.json({ message: '必須項目が入力されていません。' }, { status: 400 })
+      return NextResponse.json({ ok: false, message: '必須項目が入力されていません。' }, { status: 400 })
     }
 
     // ここで実際のメール送信処理を実装 (SendGrid などの外部サービスを使用)
